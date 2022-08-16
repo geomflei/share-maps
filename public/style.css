@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    font-size: 62.5%;
+}
+body{
+    background-color: #f8f8f8;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+section.chat_section{
+    
+    width: 80rem;
+    max-width: 90%;
+    background: #fff;
+    box-shadow: 0 1rem 1.5rem -.3rem(rgba(0,0,0,0.1),0 .4rem .6rem -.2rem rgba(0,0,0,0.05));
+}
+
+.brand{
+    padding: 2rem;
+    background-color: #f1f1f1;
+    display: flex;
+    align-items: center;
+    
+}
+.brand h1{
+    font-size: 2rem;
+    text-transform: uppercase;
+    color: #444;
+    margin-left: 1rem;
+}
+
+.message_area{
+    overflow-y: auto;
+    height: 50rem;
+    display: flex;
+    flex-direction: column;
+    padding: 1.6rem;
+    padding-top: 4rem;
+
+}
+
+
+textarea{
+    width: 55%;
+    outline: none;
+    font-size: 1.6rem;
+    background-color: #fbfbfb;
+    padding:2rem;
+    border: none;
+    position : absolute;
+    top: 80%;
+    margin-top :3.5rem ;
+    z-index: 99999;
+}
+
+.message{
+    padding: 2rem;
+    border-radius: .4rem;
+    margin-bottom: 4rem;
+    max-width: 30rem;
+    position: relative;
+    font-size: 1.5rem;
+}
+
+.incoming{
+    background-color: #8f8be8;
+    color: #fff;
+}
+.outgoing{
+    background-color:#e9eafd ;
+    color: #787986;
+    margin-left: auto;
+}
+
+.message h4{
+    position: absolute;
+    top: -2rem;
+    left: 0;
+    color: #333;
+    font-size: 1.4rem;
+}
+ 
