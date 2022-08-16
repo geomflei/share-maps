@@ -37,7 +37,9 @@
     <title>Get coordinates of the mouse pointer</title>
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.js"></script>
+
     <style>
         body {
             margin: 0;
@@ -70,7 +72,21 @@
             background: #fff;
         }
     </style>
-    <div id="map"></div>
+    <div id="map">
+        <div style="position: absolute; z-index: 9999; right: -74px; bottom: 9px;">
+            
+        <section class="chat_section">
+            <div class="brand">
+                <h1>MapsFLY</h1>
+            </div>
+            <div class="message_area"><div >
+                    <textarea  id="textarea" cols="30" rows="1" placeholder="Write a message..."></textarea>
+                </div>
+            </div>
+    
+        </section>
+        </div>
+    </div>
     <pre id="info"></pre>
     <script>
 

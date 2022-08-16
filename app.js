@@ -27,6 +27,10 @@ io.on("connection",(socket)=>{
         socket.broadcast.emit('message',msg);
         // console.log(msg);
     })
+    socket.on('messageText',(msg)=>{
+        socket.broadcast.emit('messageText',msg);
+        console.log(msg);
+    })
 })
 
 

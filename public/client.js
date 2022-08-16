@@ -13,7 +13,11 @@ do {
     myName = prompt("Enter Your myName..")
 } while (!myName);
 
-
+textarea.addEventListener('keyup',(e)=>{
+    if(e.key === 'Enter'){
+        sendTextMessage(e.target.value);
+    }
+})
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiYW1lemlhbmVnaXMiLCJhIjoiY2t6bW9kdXkyMnIwODJ1b2M3cHViYmljOCJ9.3Qf9Qmomwm1raTlf_YDfqg';
 const map = new mapboxgl.Map({
@@ -28,12 +32,6 @@ let lastZoom
 map.on('zoom', () => {
   currentZoom = map.getZoom();
   console.log(currentZoom);
-  if (currentZoom > lastZoom) {
-    // zoom in
-  } else {
-    // zoom out
-  }
-
   lastZoom = currentZoom;
 });
 
@@ -55,8 +53,49 @@ function sendMessage(message){
         zoom:lastZoom
     }
 
+
+    textarea.value = '';
+
     socket.emit('message',msg);
 }
+
+
+function sendTextMessage(messageText){
+    var today = new Date();
+    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+    var message_time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+
+    let message ={
+        user : myName,
+        message : messageText.trim(),
+        zoom:lastZoom
+    }
+    console.log(message);
+
+    //Append
+    appendMessage(message,'outgoing');
+    scrollToBottom();
+
+    textarea.value = '';
+
+    socket.emit('messageText',message);
+}
+
+function appendMessage(msg,type){
+    let mainDiv = document.createElement('div');
+    let className = type;
+    mainDiv.classList.add(className,'message');
+
+    let markup = `
+        <h4>${msg.user}</h4>
+        <p>${msg.message}</p>
+    `
+    mainDiv.innerHTML = markup;
+    
+
+    messageArea.appendChild(mainDiv);
+}
+
 
 //Receive Message
 
@@ -73,4 +112,13 @@ socket.on('message',(msg)=>{
     // scrollToBottom();
 })
 
+socket.on('messageText',(msg)=>{
 
+    console.log(msg);
+    appendMessage(msg,'incoming')
+    scrollToBottom();
+})
+
+function scrollToBottom (){
+    messageArea.scrollTop = messageArea.scrollHeight
+}
