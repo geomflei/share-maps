@@ -8,10 +8,17 @@ let messageArea = document.querySelector(".message_area");
 
 
 
-
 do {
     myName = prompt("Enter Your myName..")
+    $('#nameUser').text(myName)
+    socket.emit('listConnectUsers',myName);
+
 } while (!myName);
+
+// function allUsersList(listConnectUsers){
+
+//     socket.emit('listConnectUsers',message);
+// }
 
 textarea.addEventListener('keyup',(e)=>{
     if(e.key === 'Enter'){
@@ -70,7 +77,8 @@ function sendTextMessage(messageText){
         message : messageText.trim(),
         zoom:lastZoom
     }
-    console.log(message);
+    // console.log(message.user);
+   
 
     //Append
     appendMessage(message,'outgoing');

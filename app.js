@@ -15,10 +15,15 @@ app.get("/",(req,res)=>{
     res.sendFile(__dirname + "/index.html");
 })
 
+app.post("/api/:id",(req,res)=>{
+    let id_test=req.params.id
+    console.log(id_test);
+    // res.json('hello world')
+})
 
 //Socket
 
-
+let all_listUsersConnected=[]
 const io = require("socket.io")(http)
 
 io.on("connection",(socket)=>{
@@ -28,8 +33,18 @@ io.on("connection",(socket)=>{
         // console.log(msg);
     })
     socket.on('messageText',(msg)=>{
+        
         socket.broadcast.emit('messageText',msg);
         console.log(msg);
+    })
+
+    // listConnectUsers
+    socket.on('listConnectUsers',(listUsersConnected)=>{
+        
+        socket.broadcast.emit('listConnectUsers',listUsersConnected);
+        all_listUsersConnected=[]
+        all_listUsersConnected.push(listUsersConnected)
+        console.log('All listUsersConnected : ',all_listUsersConnected);
     })
 })
 
