@@ -139,3 +139,15 @@ socket.on('messageText',(msg)=>{
 function scrollToBottom (){
     messageArea.scrollTop = messageArea.scrollHeight
 }
+
+
+$('#close_chat_section').off().on('click',()=>{
+    // $('#chat_section').hide()
+    console.log($('#chat_section').css('height'));
+    
+    if($('#chat_section').css('height') == '50px') {
+        $('#chat_section').css('height', '408px')
+    }else{
+        $('#chat_section').css('height', '50px')
+    }
+})

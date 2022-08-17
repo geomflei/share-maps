@@ -51,7 +51,7 @@ section.chat_section{
 
 
 textarea{
-    width: 55%;
+    width: 85%;
     outline: none;
     font-size: 1.6rem;
     background-color: #fbfbfb;
@@ -59,7 +59,7 @@ textarea{
     border: none;
     position : absolute;
     top: 80%;
-    margin-top :3.5rem ;
+    margin-top :5.5rem ;
     z-index: 99999;
 }
 
@@ -73,12 +73,12 @@ textarea{
 }
 
 .incoming{
-    background-color: #8f8be8;
-    color: #fff;
+    background-color: #f0fcd2;
+    color: #000;
 }
 .outgoing{
-    background-color:#e9eafd ;
-    color: #787986;
+    background-color: #b4f21d38;
+    color: #000000;
     margin-left: auto;
 }
 

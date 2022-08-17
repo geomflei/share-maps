@@ -7,6 +7,7 @@
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.js"></script>
 
@@ -36,20 +37,27 @@
             color: #222;
             background: #fff;
         }
+        .outgoing {
+            width: 221px;
+        }
     </style>
 </head>
 
 <body>
     <div id="map">
-        <div style="position: absolute; z-index: 9999; right: -37px; bottom: 9px; width: 408px;">
+        <div style="position: absolute; z-index: 9999; right: -37px; bottom: 9px; width: 408px;" id="chat_section" > 
             
         <section class="chat_section">
             <div class="brand">
                 <small id="nameUser">MapsFLY</small>
             </div>
-            <div class="message_area"><div >
-                    <textarea  id="textarea" cols="30" rows="1" placeholder="Write a message..."></textarea>
-                </div>
+            <div style="width: 100%;">
+                <i class="fa fa-minus-square-o" id="close_chat_section" aria-hidden="true" style="float: right; font-size: 23px; margin-top: -41px; margin-right: 11px;"></i>
+            </div>
+            <div class="message_area">
+            </div>
+            <div >
+                <textarea  id="textarea" cols="30" rows="1" placeholder="Write a message..."></textarea>
             </div>
     
         </section>
