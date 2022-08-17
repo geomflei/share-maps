@@ -18,7 +18,7 @@ app.get("/",(req,res)=>{
 app.post("/api/:id",(req,res)=>{
     let id_test=req.params.id
     console.log(id_test);
-    // res.json('hello world')
+    res.json(`Hello : ${id_test}`);
 })
 
 //Socket
