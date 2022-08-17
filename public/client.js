@@ -29,10 +29,22 @@ textarea.addEventListener('keyup',(e)=>{
 mapboxgl.accessToken = 'pk.eyJ1IjoiYW1lemlhbmVnaXMiLCJhIjoiY2t6bW9kdXkyMnIwODJ1b2M3cHViYmljOCJ9.3Qf9Qmomwm1raTlf_YDfqg';
 const map = new mapboxgl.Map({
     container: 'map', // container id
-    style: 'mapbox://styles/mapbox/streets-v11',
-    center: [-74.5, 40], // starting position
-    zoom: 9 // starting zoom
+    style: 'mapbox://styles/mapbox/satellite-v9',
+    center: [-6.5, 34], // starting position
+    zoom: 3 // starting zoom
 });
+
+map.addControl(
+    new mapboxgl.GeolocateControl({
+    positionOptions: {
+    enableHighAccuracy: true
+    },
+    // When active the map will receive updates to the device's location as it changes.
+    trackUserLocation: true,
+    // Draw an arrow next to the location dot to indicate which direction the device is heading.
+    showUserHeading: true
+    })
+    );
 
 let lastZoom
 
@@ -115,9 +127,6 @@ socket.on('message',(msg)=>{
         center: pointCoordinates,
         zoom: pointZoomLevel
     });
-
-    // appendMessage(msg,'incoming')
-    // scrollToBottom();
 })
 
 socket.on('messageText',(msg)=>{

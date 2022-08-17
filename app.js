@@ -15,11 +15,7 @@ app.get("/",(req,res)=>{
     res.sendFile(__dirname + "/index.html");
 })
 
-app.post("/api/:id",(req,res)=>{
-    let id_test=req.params.id
-    console.log(id_test);
-    res.json(`Hello : ${id_test}`);
-})
+
 
 //Socket
 
