@@ -1,4 +1,4 @@
-# WassupChatApp
+# ShareMaps ChatApp
 A real time Share Maps app.
 
 
