@@ -9,7 +9,7 @@ let messageArea = document.querySelector(".message_area");
 
 
 do {
-    myName = prompt("Enter Your myName..")
+    myName = prompt("Enter Your Name..")
     $('#nameUser').text(myName)
     socket.emit('listConnectUsers',myName);
 
