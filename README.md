@@ -1,5 +1,5 @@
 # WassupChatApp
-A real time chat app.
+A real time Share Maps app.
 
 
 
